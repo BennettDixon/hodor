@@ -42,7 +42,7 @@ def do_post_crack():
         if line.get('name') == "key":
             key = line.get('value')
     captcha_val = get_captcha(session, captcha)
-    payload = {'id': '666', 'key': key, 'holdthedoor': 'submit',
+    payload = {'id': '6666', 'key': key, 'holdthedoor': 'submit',
                 'captcha': captcha_val}
 
     r = session.post(url, headers=hs, data=payload)
@@ -54,11 +54,12 @@ def do_post_crack():
     return True
 
 failed = 0
-num_req = 666
+num_req = 100
 i = 0
 while i < num_req:
     if i > 1 and i % 100 == 0:
-        print("after {} requests we have a success rate of {}%".format(i, float(failed) / i))
+        print("after {} requests we have a success rate of {}%".format(i,\
+        round(float(i - failed) / i, 2)))
     elif i > 1 and i % 10 == 0:
         print("posted {} requests".format(i))
     res = do_post_crack()
@@ -66,4 +67,5 @@ while i < num_req:
         failed += 1
         num_req += 1
     i += 1
-print("Failed {} number of requests, succeeded with {} requests".format(failed, i))
+print("Failed {} number of requests, succeeded with {} requests".format(failed, i - failed))
+print("Success rate of OCR:{}%".format(round(float(i - failed) / i, 4)))
