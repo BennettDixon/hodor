@@ -53,12 +53,7 @@ def do_post_crack(captcha_learner):
 failed = 0
 i = 0
 learner = CaptchaLearner()
-while i < num_req:
-    if i > 1 and i % 100 == 0:
-        print("after {} requests we have a success rate of {}%".format(i,\
-        round(float(i - failed) / i, 2)))
-    elif i > 1 and i % 10 == 0:
-        print("posted {} requests".format(i))
+while learner.best_test is None:
     res = do_post_crack(learner)
     if res == False:
         failed += 1
