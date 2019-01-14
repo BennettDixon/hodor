@@ -53,7 +53,11 @@ def do_post_crack(captcha_learner):
 failed = 0
 learner = CaptchaLearner()
 while learner.best_test is None:
-    res = do_post_crack(learner)
+    try:
+        res = do_post_crack(learner)
+    except:
+        print("exception raised during test")
+        res = False
     if res == False:
         learner.test_fail()
     else:
