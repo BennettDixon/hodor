@@ -1,0 +1,5 @@
+# compiled py files
+*/__pycache__/*
+
+# temp img's
+*.png
