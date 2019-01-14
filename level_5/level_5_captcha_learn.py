@@ -51,13 +51,12 @@ def do_post_crack(captcha_learner):
     return True
 
 failed = 0
-i = 0
 learner = CaptchaLearner()
 while learner.best_test is None:
     res = do_post_crack(learner)
     if res == False:
-        failed += 1
-        num_req += 1
-    i += 1
-print("Failed {} number of requests, succeeded with {} requests".format(failed, i - failed))
-print("Success rate of OCR:{}%".format(round(float(i - failed) / i, 4)))
+        learner.test_fail()
+    else:
+        learner.test_success()
+print("Learner found best test combination to be:\n{}".format(learner.best_test))
+print("With a success rate of %{}".format(learner.best_test.get_success_rate()))
