@@ -80,7 +80,7 @@ class CaptchaLearner():
             which filter setting was effected
             how many times a filter setting has been effected
         """
-        test_flip = 1000
+        test_flip = CaptchaTest.iterations_per_test * 10
         iterations = self.get_iterations()
         print("set_new_test got iterations: {}".format(iterations))
 
