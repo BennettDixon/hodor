@@ -62,8 +62,7 @@ class CaptchaLearner():
         if test.current_i >= (test.iterations_per_test) or\
         (prev_test is not None and\
         (test.current_i > test.iterations_per_test / 10 and\
-        (test.get_success_rate() == 0 or\
-        test.get_success_rate() + 0.2 < prev_test.get_success_rate()))):
+        (self.is_worse_test(test)))):
             self.set_new_test()
         img = cv2.imread(self.temp_file_name)
         img = cv2.medianBlur(img, test.blur_factor)
@@ -148,3 +147,21 @@ class CaptchaLearner():
                 failures.append(test)
                 if len(failures) >= failure_max - 1:
                     return True
+
+    def is_worse_test(self, test):
+        """checks if a test is going worse than previous tests by
+            large factor.
+            Returns true if it is,
+            False if not.
+        """
+        if not isinstance(test, CaptchaTest):
+            raise TypeError("'CaptchaLearner' is_worse_test() test value must be of CaptchaTest type")
+        if test.current_i < test.iterations_per_test / 10:
+            return False # not enough data points yet
+        success_rate = test.get_success_rate()
+        if success_rate == 0:
+            return True
+        for test_in_list in self.__test_cases:
+            if test_in_list.get_success_rate() > success_rate + 0.2:
+                return True
+        return False
