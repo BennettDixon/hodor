@@ -3,7 +3,6 @@ class TestAlias():
     """
     def __init__(self, alias):
         self.alias = alias
-        self.__tests_ran = 0
 
     @property
     def alias(self):
@@ -16,10 +15,3 @@ class TestAlias():
         if not value.isupper():
             raise ValueError("'TestAlias' alias must be all uppercase")
         self.__alias = value
-
-    @property
-    def tests_ran(self):
-        return self.__tests_ran
-
-    def increment_tests_ran(self):
-        self.__tests_ran += 1
