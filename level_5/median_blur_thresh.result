@@ -1,0 +1,6 @@
+Learner found best test combination to be:
+TestAlias:THRESH
+blur_factor:3
+base_thresh:55
+
+With a success rate of %0.436

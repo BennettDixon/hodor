@@ -8,7 +8,7 @@ class CaptchaTest():
     """
     iterations_per_test = 1000
 
-    def __init__(self, start_blur=3, start_thresh=5, test_alias=None):
+    def __init__(self, start_blur=3, start_thresh=55, test_alias=None):
         """insatiates class instance
         """
         self.blur_factor = start_blur
