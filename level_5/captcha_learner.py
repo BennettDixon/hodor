@@ -84,7 +84,7 @@ class CaptchaLearner():
         print("set_new_test got iterations: {}".format(iterations))
 
         blur_change = 2
-        thresh_change = 5
+        thresh_change = 2
         test = self.__current_test
         
         if (test.test_alias is None or iterations < test_flip) and not\
@@ -165,3 +165,16 @@ class CaptchaLearner():
             if test_in_list.get_success_rate() > success_rate + 0.2:
                 return True
         return False
+
+    def write_tests(self, filename):
+        """writes tests to a file for learner instance
+        """
+        builder = ""
+        f = open(filename, "w")
+
+        for test in self.__test_cases:
+            builder += repr(test) + '\n'
+            builder += "Success Rate: " + round(test.get_success_rate(), 3)
+            builder += " %\n"
+        f.write(builder)
+        f.close()

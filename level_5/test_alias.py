@@ -4,6 +4,11 @@ class TestAlias():
     def __init__(self, alias):
         self.alias = alias
 
+    def __repr__(self):
+        string = "TestAlias(\""
+        string += self.alias + '"' + ")"
+        return string
+
     @property
     def alias(self):
         return self.__alias
