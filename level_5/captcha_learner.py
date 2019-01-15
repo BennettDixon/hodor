@@ -110,7 +110,12 @@ class CaptchaLearner():
             best_thresh = self.get_best_test("THRESH")
             best_blur = self.get_best_test("BLUR")
             if best_thresh is None or best_blur is None:
-                print("failed to find best test, one test case failed all tests")
+                if best_thresh is None:
+                    self.__best_test = best_blur
+                elif best_blur is None:
+                    self.__best_test = best_thresh
+                else:
+                    raise Exception("Both tests failed all cases with 0 success rates. Exiting.")
                 return
             best_thresh.blur_factor = best_blur.blur_factor
             self.__best_test = best_thresh
@@ -145,7 +150,7 @@ class CaptchaLearner():
             if test.test_alias.alias == alias and\
             test.get_success_rate() < bottom_rate:
                 failures.append(test)
-                if len(failures) >= failure_max - 1:
+                if len(failures) >= failure_max:
                     return True
 
     def is_worse_test(self, test):
