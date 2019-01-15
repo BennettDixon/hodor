@@ -84,7 +84,7 @@ class CaptchaLearner():
         print("set_new_test got iterations: {}".format(iterations))
 
         blur_change = 2
-        thresh_change = 2
+        thresh_change = 1
         test = self.__current_test
         
         if (test.test_alias is None or iterations < test_flip) and not\
@@ -179,7 +179,7 @@ class CaptchaLearner():
 
         for test in self.__test_cases:
             builder += repr(test) + '\n'
-            builder += "Success Rate: " + round(test.get_success_rate(), 3)
+            builder += "Success Rate: " + str(round(test.get_success_rate(), 3))
             builder += " %\n"
         f.write(builder)
         f.close()
