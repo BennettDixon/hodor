@@ -1,0 +1,46 @@
+CaptchaTest(3, 35, TestAlias("BLUR"))
+Success Rate: 0.432 %
+CaptchaTest(5, 35, TestAlias("BLUR"))
+Success Rate: 0.04 %
+CaptchaTest(7, 35, TestAlias("BLUR"))
+Success Rate: 0.0 %
+CaptchaTest(3, 35, TestAlias("BLUR"))
+Success Rate: 0.0 %
+CaptchaTest(3, 36, TestAlias("THRESH"))
+Success Rate: 0.406 %
+CaptchaTest(3, 37, TestAlias("THRESH"))
+Success Rate: 0.426 %
+CaptchaTest(3, 38, TestAlias("THRESH"))
+Success Rate: 0.418 %
+CaptchaTest(3, 39, TestAlias("THRESH"))
+Success Rate: 0.445 %
+CaptchaTest(3, 40, TestAlias("THRESH"))
+Success Rate: 0.425 %
+CaptchaTest(3, 41, TestAlias("THRESH"))
+Success Rate: 0.403 %
+CaptchaTest(3, 42, TestAlias("THRESH"))
+Success Rate: 0.408 %
+CaptchaTest(3, 43, TestAlias("THRESH"))
+Success Rate: 0.416 %
+CaptchaTest(3, 44, TestAlias("THRESH"))
+Success Rate: 0.418 %
+CaptchaTest(3, 45, TestAlias("THRESH"))
+Success Rate: 0.408 %
+CaptchaTest(3, 46, TestAlias("THRESH"))
+Success Rate: 0.427 %
+CaptchaTest(3, 47, TestAlias("THRESH"))
+Success Rate: 0.405 %
+CaptchaTest(3, 48, TestAlias("THRESH"))
+Success Rate: 0.445 %
+CaptchaTest(3, 49, TestAlias("THRESH"))
+Success Rate: 0.424 %
+CaptchaTest(3, 50, TestAlias("THRESH"))
+Success Rate: 0.431 %
+CaptchaTest(3, 51, TestAlias("THRESH"))
+Success Rate: 0.436 %
+CaptchaTest(3, 52, TestAlias("THRESH"))
+Success Rate: 0.443 %
+CaptchaTest(3, 53, TestAlias("THRESH"))
+Success Rate: 0.421 %
+CaptchaTest(3, 54, TestAlias("THRESH"))
+Success Rate: 0.431 %
